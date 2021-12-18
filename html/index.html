@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="scrollContainer">
+			<div id="nav">
+				<div id="navHome"><a class="active" href="#home">home</a></div>
+				<div id="navAbout"><a href="#about">about</a></div>
+				<div id="navJobs"><a href="#jobs">experience</a></div>
+				<div id="navProjects"><a href="#projects">projects</a></div>
+				<div id="navContact"><a href="#contact">contact</a></div>
+			</div>
+			<div class="scroll"></div>
+			<div id="scrollPointer" class="scrollPointer"></div>
+		</div>
+		<div id="theme" class="dark">
+			<section id="home">
+				<div class="content hero animateIn">
+					<div class="hi">
+						<h1>Hi, my name is</h1>
+						<h2>Brandon Youngquist</h2>
+					</div>
+					<h3>I develop full stack applications for the web.</h3>
+					<p>
+						I'm a full stack software engineer that builds
+						applications for the web. Currently, I work for a
+						company building financial web apps for local
+						governments.
+					</p>
+				</div>
+			</section>
+
+			<section id="about">
+				<div class="content about">
+					<div class="title">
+						<h3>About Me</h3>
+					</div>
+					<div class="aboutContent">
+						<!-- <div class="box-blue"></div>
+						<div class="box-red"></div> -->
+						<div class="paragraphs">
+							<p>
+								Hi! My name is Brandon and I enjoy developing
+								software for the web. My main passions include
+								developing APIs, and data visualization, and
+								data science from a software engineering point
+								of view.
+							</p>
+							<p>
+								I love building productivity tools. I am always
+								thinking about about how to get things done in a
+								more efficient manner.
+							</p>
+							<p>
+								Professionaly, I have worked with the full stack
+								of Microsoft development tools and libraries to
+								create financial web apps for local governments.
+							</p>
+						</div>
+						<img src="//unsplash.it/300/300" alt="headshot" />
+					</div>
+				</div>
+			</section>
+
+			<section id="jobs">
+				<div id="jobsContainer" class="content">
+					<div class="title">
+						<h3>Where I've Worked</h3>
+					</div>
+					<div class="jobsContent">
+						<div class="companies">
+							<p class="active">LOCiS</p>
+							<p class>North Central College</p>
+						</div>
+						<div class="description">
+							<h4>Software Engineer</h4>
+							<ul>
+								<li>
+									Created performant financial web apps for
+									local governments
+								</li>
+								<li>
+									Communicate specific software solutions to
+									non-technical people
+								</li>
+								<li>
+									Interface directly with customers to address
+									specific needs
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="projects">
+				<div class="content">
+					<div class="title">
+						<h3>Projects</h3>
+					</div>
+					<div class="projectsContent">
+						<div class="card">
+							<img
+								class="card"
+								src="//unsplash.it/1920/1080"
+								alt="cardimg"
+							/>
+							<div class="content"><h4>lorem ipsum 1</h4></div>
+						</div>
+						<div class="card">
+							<div class="content"><h4>lorem ipsum 2</h4></div>
+							<img
+								class="card"
+								src="//unsplash.it/1920/1080"
+								alt="cardimg"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="contact">
+				<div class="content">
+					<div class="title">
+						<h3>Get in Touch</h3>
+					</div>
+					<div class="contactContent">
+						<form action="" method="post">
+							<input
+								name="email"
+								type="text"
+								placeholder="your@email.address"
+								autocomplete="email"
+							/>
+							<input
+								name="subject"
+								type="text"
+								placeholder="Subject"
+								autocomplete="false"
+							/>
+							<textarea
+								name="body"
+								type="text"
+								rows="5"
+								placeholder="Body..."
+								autocomplete="false"
+							></textarea>
+							<input type="submit" value="SEND ➤" />
+						</form>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script>
+			const scrollDiv = document.getElementById('theme');
+			const scrollPointer = document.getElementById('scrollPointer');
+
+			scrollDiv.onscroll = () => {
+				let percent =
+					Math.min(
+						Math.max(
+							0.3,
+							(scrollDiv.scrollTop / scrollDiv.scrollHeight) * 134
+						),
+						98.2
+					) + '%';
+				scrollPointer.style.top = percent;
+			};
+
+			const home = document.getElementById('home');
+			const about = document.getElementById('about');
+			const jobs = document.getElementById('jobs');
+			const projects = document.getElementById('projects');
+			const contact = document.getElementById('contact');
+
+			const navHome = document.getElementById('navHome');
+			const navAbout = document.getElementById('navAbout');
+			const navJobs = document.getElementById('navJobs');
+			const navProjects = document.getElementById('navProjects');
+			const navContact = document.getElementById('navContact');
+
+			window.onload = () => {
+				navHome.style.top = cssPercent(
+					home.offsetTop / scrollDiv.scrollHeight
+				);
+				navAbout.style.top = cssPercent(
+					about.offsetTop / scrollDiv.scrollHeight
+				);
+				navJobs.style.top = cssPercent(
+					jobs.offsetTop / scrollDiv.scrollHeight
+				);
+				navProjects.style.top = cssPercent(
+					projects.offsetTop / scrollDiv.scrollHeight
+				);
+				navContact.style.top = cssPercent(
+					contact.offsetTop / scrollDiv.scrollHeight
+				);
+
+				setActive();
+
+				document
+					.getElementById('theme')
+					.addEventListener('scroll', () => {
+						setActive();
+					});
+			};
+
+			function cssPercent(percentAsDecimal) {
+				return percentAsDecimal * 101 + '%';
+			}
+
+			// const scrollPassThrough = () => {
+
+			// }
+
+			const setActive = () => {
+				const sections = document.querySelectorAll('section');
+
+				sections.forEach((section) => {
+					const contentTop =
+						document.getElementById('theme').scrollTop;
+					const sectionTop = section.offsetTop;
+					const sectionHeight = section.scrollHeight;
+					// (contentTop >= sectionTop - sectionHeight) / 2
+					if (
+						section.getBoundingClientRect().top + sectionHeight >
+							0 &&
+						section.getBoundingClientRect().top < window.innerHeight
+					) {
+						let activeAnchor = document.querySelector(
+							`a[href='#${section.id}']`
+						);
+
+						activeAnchor.classList.add('active');
+					} else {
+						let activeAnchor = document.querySelector(
+							`a[href='#${section.id}']`
+						);
+
+						activeAnchor.classList.remove('active');
+					}
+				});
+			};
+		</script>
+	</body>
+</html>
