@@ -15,7 +15,10 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<div id="theme" class="light">
+		<div id="theme" class="dark">
+			<div id="burgerMenu">
+				<span id="burgerMenuText">MENU</span>
+			</div>
 			<section id="home">
 				<div class="content hero animateIn">
 					<div class="hi">
@@ -42,11 +45,11 @@
 						<div class="box-red"></div> -->
 						<div class="paragraphs">
 							<p>
-								Hi! My name is Brandon and I enjoy developing
-								software for the web. My main passions include
-								developing APIs, and data visualization, and
-								data science from a software engineering point
-								of view.
+								Hi! My name is Brandon and I develope software
+								for the web. My main interests include
+								developing APIs, data visualization, and data
+								science from a software engineering point of
+								view.
 							</p>
 							<p>
 								I love building productivity tools. I am always
@@ -152,21 +155,75 @@
 					</div>
 				</div>
 			</section>
-			<div class="scrollContainer">
-				<div id="nav">
-					<div id="navHome">
-						<a class="active" href="#home">home</a>
+			<div id="menuItems">
+				<div class="scrollContainer">
+					<div id="nav">
+						<div id="navHome">
+							<a class="active" href="#home">home</a>
+						</div>
+						<div id="navAbout"><a href="#about">about</a></div>
+						<div id="navJobs"><a href="#jobs">experience</a></div>
+						<div id="navProjects">
+							<a href="#projects">projects</a>
+						</div>
+						<div id="navContact">
+							<a href="#contact">contact</a>
+						</div>
 					</div>
-					<div id="navAbout"><a href="#about">about</a></div>
-					<div id="navJobs"><a href="#jobs">experience</a></div>
-					<div id="navProjects"><a href="#projects">projects</a></div>
-					<div id="navContact"><a href="#contact">contact</a></div>
+					<div class="scroll"></div>
+					<div id="scrollPointer" class="scrollPointer"></div>
 				</div>
-				<div class="scroll"></div>
-				<div id="scrollPointer" class="scrollPointer"></div>
-			</div>
-			<div class="paint">
-				<span class="fas fa-paint-brush"></span>
+				<div class="otherLinksContainer">
+					<div id="paint" class="otherLink paint">
+						<i id="theme-switcher" class="fas fa-sun"></i>
+						<div class="help">
+							<p>This site uses your system preference</p>
+						</div>
+					</div>
+					<div class="otherLink">
+						<a href="/BrandonYoungquist_Resume.pdf" target="_blank">
+							<i class="fas fa-file-download"></i>
+						</a>
+						<div class="help">
+							<p>Download Resume</p>
+						</div>
+					</div>
+					<div class="otherLink">
+						<a
+							href="https://www.linkedin.com/in/brandonyoungquist/"
+							target="_blank"
+						>
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+						<div class="help">
+							<p>linkedin.com/in/brandonyoungquist/</p>
+						</div>
+					</div>
+					<div class="otherLink">
+						<a
+							href="https://github.com/bmyoungquist"
+							target="_blank"
+						>
+							<i class="fab fa-github"> </i>
+						</a>
+						<div class="help">
+							<p>github.com/bmyoungquist</p>
+						</div>
+					</div>
+					<div class="otherLink">
+						<a href="mailto:brandon@youngquist.dev" target="_blank">
+							<i class="fas fa-envelope"> </i>
+						</a>
+						<div class="help">
+							<p>brandon@youngquist.dev</p>
+						</div>
+					</div>
+					<!-- <div id="email">
+                    <a href="mailto:brandon@youngquist.dev"
+                    >brandon@youngquist.dev</a
+					>
+				</div> -->
+				</div>
 			</div>
 		</div>
 
@@ -218,19 +275,99 @@
 				setActive();
 
 				document
+					.getElementById('burgerMenuText')
+					.addEventListener('click', () => toggleBurgerMenu());
+
+				const navLinks = document.querySelectorAll('#nav div a');
+				navLinks.forEach((link) => {
+					link.addEventListener('click', () => {
+						setTimeout(toggleBurgerMenu, 600);
+					});
+				});
+
+				document
 					.getElementById('theme')
 					.addEventListener('scroll', () => {
 						setActive();
 					});
+
+				document
+					.getElementById('paint')
+					.addEventListener('click', () => {
+						switchTheme();
+					});
+
+				setThemeIcon();
+
+				if (
+					window.matchMedia &&
+					window.matchMedia('(prefers-color-scheme: dark)').matches
+				) {
+					setTheme('dark');
+				}
 			};
 
 			function cssPercent(percentAsDecimal) {
 				return percentAsDecimal * 101 + '%';
 			}
 
-			// const scrollPassThrough = () => {
+			function setThemeIcon() {
+				let themeSwitcher = document.getElementById('theme-switcher');
+				let themeDiv = document.getElementById('theme');
 
-			// }
+				if (themeDiv.classList.contains('dark')) {
+					themeSwitcher.classList.remove('fa-moon');
+					themeSwitcher.classList.add('fa-sun');
+				} else {
+					themeSwitcher.classList.remove('fa-sun');
+					themeSwitcher.classList.add('fa-moon');
+				}
+			}
+
+			const toggleBurgerMenu = () => {
+				if (
+					window.matchMedia &&
+					window.matchMedia('(max-width: 1100px)').matches
+				) {
+					let burgerText = document.getElementById('burgerMenuText');
+					let menu = document.getElementById('menuItems');
+					let burger = document.getElementById('burgerMenu');
+
+					if (burgerText.innerHTML === 'MENU') {
+						menu.classList.add('active');
+						burger.classList.add('active');
+						burgerText.classList.add('active');
+						burgerText.innerHTML = 'CLOSE MENU';
+					} else {
+						menu.classList.remove('active');
+						burger.classList.remove('active');
+						burgerText.classList.remove('active');
+						burgerText.innerHTML = 'MENU';
+					}
+				}
+			};
+
+			const switchTheme = () => {
+				let themeDiv = document.getElementById('theme');
+				let themeSwitcher = document.getElementById('theme-switcher');
+
+				if (themeDiv.classList.contains('dark')) {
+					themeDiv.classList = ['light'];
+					setThemeIcon();
+				} else {
+					themeDiv.classList = ['dark'];
+					setThemeIcon();
+				}
+			};
+
+			function setTheme(theme) {
+				let themeDiv = document.getElementById('theme');
+				let currentTheme = themeDiv.classList[0];
+
+				if (currentTheme !== theme) {
+					switchTheme();
+				}
+			}
 
 			const setActive = () => {
 				const sections = document.querySelectorAll('section');
