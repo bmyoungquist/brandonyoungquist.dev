@@ -1,5 +1,11 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
+import Projects from '../components/Projects';
+import Contact from '../components/Contact';
+import Menu from '../components/Menu';
+import Experience from '../components/Experience';
+import AboutMe from '../components/AboutMe';
+import Hero from '../components/Hero';
 
 const Home: NextPage = () => {
 	useEffect(() => {
@@ -166,219 +172,13 @@ const Home: NextPage = () => {
 
 	return (
 		<div id="theme" className="dark">
-			<div id="burgerMenu">
-				<span id="burgerMenuText">MENU</span>
-			</div>
-			<section id="home">
-				<div className="content hero animateIn">
-					<div className="hi">
-						<h1>Hi, my name is</h1>
-						<h2>Brandon Youngquist</h2>
-					</div>
-					<h3>I develop full stack applications for the web.</h3>
-					<p>
-						I'm a full stack software engineer that builds
-						applications for the web. Currently, I work for a
-						company building financial web apps for local
-						governments.
-					</p>
-				</div>
-			</section>
+			<Hero />
+			<AboutMe />
+			<Experience />
+			<Projects />
+			<Contact />
 
-			<section id="about">
-				<div className="content about">
-					<div className="title">
-						<h3>About Me</h3>
-					</div>
-					<div className="aboutContent">
-						<div className="paragraphs">
-							<p>
-								Hi! My name is Brandon and I develope software
-								for the web. My main interests include
-								developing APIs, data visualization, and data
-								science from a software engineering point of
-								view.
-							</p>
-							<p>
-								I love building productivity tools. I am always
-								thinking about about how to get things done in a
-								more efficient manner.
-							</p>
-							<p>
-								Professionaly, I have worked with the full stack
-								of Microsoft development tools and libraries to
-								create financial web apps for local governments.
-							</p>
-						</div>
-						<img src="//unsplash.it/300/300" alt="headshot" />
-					</div>
-				</div>
-			</section>
-
-			<section id="jobs">
-				<div id="jobsContainer" className="content">
-					<div className="title">
-						<h3>Where I've Worked</h3>
-					</div>
-					<div className="jobsContent">
-						<div className="companies">
-							<p className="active">LOCiS</p>
-							<p>North Central College</p>
-						</div>
-						<div className="description">
-							<h4>Software Engineer</h4>
-							<ul>
-								<li>
-									Created performant financial web apps for
-									local governments
-								</li>
-								<li>
-									Communicate specific software solutions to
-									non-technical people
-								</li>
-								<li>
-									Interface directly with customers to address
-									specific needs
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="projects">
-				<div className="content">
-					<div className="title">
-						<h3>Projects</h3>
-					</div>
-					<div className="projectsContent">
-						<div className="card">
-							<img
-								className="card"
-								src="//unsplash.it/1920/1080"
-								alt="cardimg"
-							/>
-							<div className="content">
-								<h4>lorem ipsum 1</h4>
-							</div>
-						</div>
-						<div className="card">
-							<div className="content">
-								<h4>lorem ipsum 2</h4>
-							</div>
-							<img
-								className="card"
-								src="//unsplash.it/1920/1080"
-								alt="cardimg"
-							/>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="contact">
-				<div className="content">
-					<div className="title">
-						<h3>Get in Touch</h3>
-					</div>
-					<div className="contactContent">
-						<form action="" method="post">
-							<input
-								name="email"
-								type="text"
-								placeholder="your@email.address"
-								autoComplete="email"
-							/>
-							<input
-								name="subject"
-								type="text"
-								placeholder="Subject"
-								autoComplete="false"
-							/>
-							<textarea
-								name="body"
-								placeholder="Body..."
-								autoComplete="false"
-							></textarea>
-							<input type="submit" value="SEND ➤" />
-						</form>
-					</div>
-				</div>
-			</section>
-			<div id="menuItems">
-				<div className="scrollContainer">
-					<div id="nav">
-						<div id="navHome">
-							<a className="active" href="#home">
-								home
-							</a>
-						</div>
-						<div id="navAbout">
-							<a href="#about">about</a>
-						</div>
-						<div id="navJobs">
-							<a href="#jobs">experience</a>
-						</div>
-						<div id="navProjects">
-							<a href="#projects">projects</a>
-						</div>
-						<div id="navContact">
-							<a href="#contact">contact</a>
-						</div>
-					</div>
-					<div className="scroll"></div>
-					<div id="scrollPointer" className="scrollPointer"></div>
-				</div>
-				<div
-					className="otherLinksContainer"
-					style={{ zIndex: '10000' }}
-				>
-					<div id="paint" className="otherLink paint">
-						<i id="theme-switcher" className="fas fa-sun"></i>
-						<div className="help">
-							<p>This site uses your system preference</p>
-						</div>
-					</div>
-					<div className="otherLink">
-						<a href="/BrandonYoungquist_Resume.pdf" target="_blank">
-							<i className="fas fa-file-download"></i>
-						</a>
-						<div className="help">
-							<p>Download Resume</p>
-						</div>
-					</div>
-					<div className="otherLink">
-						<a
-							href="https://www.linkedin.com/in/brandonyoungquist/"
-							target="_blank"
-						>
-							<i className="fab fa-linkedin-in"></i>
-						</a>
-						<div className="help">
-							<p>linkedin.com/in/brandonyoungquist/</p>
-						</div>
-					</div>
-					<div className="otherLink">
-						<a
-							href="https://github.com/bmyoungquist"
-							target="_blank"
-						>
-							<i className="fab fa-github"> </i>
-						</a>
-						<div className="help">
-							<p>github.com/bmyoungquist</p>
-						</div>
-					</div>
-					<div className="otherLink">
-						<a href="mailto:brandon@youngquist.dev" target="_blank">
-							<i className="fas fa-envelope"> </i>
-						</a>
-						<div className="help">
-							<p>brandon@youngquist.dev</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<Menu />
 		</div>
 	);
 };

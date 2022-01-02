@@ -450,7 +450,7 @@ img:not(.card) {
 // 	height: auto;
 // }
 
-.projectsContent > * + * {
+.card + .card {
 	margin-block: 1rem;
 }
 
@@ -468,7 +468,7 @@ img:not(.card) {
 		min-width: 480px;
 		z-index: 2;
 		backdrop-filter: blur(4px);
-		background-color: rgba($color: var(--clr-bg), $alpha: 0.5);
+		background-color: #22222250; //rgba($color: var(--clr-bg), $alpha: 0.85);
 	}
 
 	img {
@@ -606,7 +606,7 @@ form {
 
 	#menuItems.active .scrollContainer,
 	.otherLinksContainer {
-		z-index: 20;
+		z-index: 30;
 		opacity: 100%;
 	}
 
