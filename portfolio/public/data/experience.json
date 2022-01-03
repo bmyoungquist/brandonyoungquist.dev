@@ -1,0 +1,22 @@
+[
+	{
+		"company": "LOCiS",
+		"title": "Software Developer",
+		"bulletPoints": [
+			"Created performant financial web apps for local governments",
+			"Communicated specific software solutions to non-technical people",
+			"Interface directly with customers to address specific needs"
+		],
+		"index": 1
+	},
+	{
+		"company": "North Central College",
+		"title": "Resident Assistant",
+		"bulletPoints": [
+			"Managed, mentored, and fostered relationships amongst 40 students",
+			"Mediated interpersonal disputes",
+			"Collaborated with other Resident Assistants to create a greater sense of community within the residence hall"
+		],
+		"index": 2
+	}
+]
