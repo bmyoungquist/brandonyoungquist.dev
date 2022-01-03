@@ -1,28 +1,104 @@
+import { GetStaticProps } from 'next';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import Section from './Section';
 
+interface IJob {
+	company: string;
+	title: string;
+	bulletPoints: string[];
+	index: number;
+}
+
 const Experience: React.FunctionComponent = () => {
+	const [jobs, setJobs] = useState([] as IJob[]);
+
+	const switchDescription = (
+		event: React.MouseEvent<HTMLParagraphElement>
+	) => {
+		document
+			.querySelector('#jobs .description .active')
+			?.classList.remove('active');
+
+		document
+			.querySelector('#jobs .companies .active')
+			?.classList.remove('active');
+
+		document
+			.getElementById((event.target as HTMLParagraphElement).id)
+			?.classList.add('active');
+
+		document
+			.getElementById(
+				(event.target as HTMLParagraphElement).id.replace(
+					'company',
+					'description'
+				)
+			)
+			?.classList.add('active');
+
+		console.log(event);
+	};
+
+	useEffect(() => {
+		fetch(
+			'../data/experience.json',
+
+			{
+				headers: {
+					'Content-Type': 'application/json',
+
+					Accept: 'application/json',
+				},
+			}
+		).then(async (response) => {
+			setJobs(((await response.json()) as IJob[]).sort(sortByIndex));
+		});
+	}, []);
+
+	const sortByIndex = (a: IJob, b: IJob) => {
+		if (a.index > b.index) {
+			return 1;
+		} else if (a.index < b.index) {
+			return -1;
+		}
+		return 0;
+	};
+
 	return (
 		<Section id="jobs" title="Where I've Worked">
 			<div className="companies">
-				<p className="active">LOCiS</p>
-				<p>North Central College</p>
+				{jobs.map((job) => {
+					return (
+						<p
+							key={`company${job.index}`}
+							id={`company${job.index}`}
+							className={job.index === 1 ? 'active' : ''}
+							onClick={switchDescription}
+						>
+							{job.company}
+						</p>
+					);
+				})}
+				{/* <p className="active">LOCiS</p>
+				<p>North Central College</p> */}
 			</div>
 			<div className="description">
-				<h4>Software Engineer</h4>
-				<ul>
-					<li>
-						Created performant financial web apps for local
-						governments
-					</li>
-					<li>
-						Communicate specific software solutions to non-technical
-						people
-					</li>
-					<li>
-						Interface directly with customers to address specific
-						needs
-					</li>
-				</ul>
+				{jobs.map((job) => {
+					return (
+						<div
+							key={`description${job.index}`}
+							id={`description${job.index}`}
+							className={job.index === 1 ? 'active' : ''}
+						>
+							<h4>{job.title}</h4>
+							<ul>
+								{job.bulletPoints.map((bullet) => {
+									return <li key={bullet}>{bullet}</li>;
+								})}
+							</ul>
+						</div>
+					);
+				})}
 			</div>
 		</Section>
 	);
