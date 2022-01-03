@@ -6,7 +6,7 @@ const Contact: React.FunctionComponent = () => {
 			<form action="" method="post">
 				<input
 					name="email"
-					type="text"
+					type="email"
 					placeholder="your@email.address"
 					autoComplete="email"
 				/>
