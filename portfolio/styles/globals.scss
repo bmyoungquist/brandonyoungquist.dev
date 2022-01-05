@@ -2,11 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
-body,
-html {
-	max-height: 100vh;
-}
-
 :root,
 #nav,
 .scrollContainer {
@@ -23,7 +18,7 @@ html {
 	--white-off-a50: #f5f5f57c;
 	--gold: #f6be00;
 	--gold-dark: #b68b00;
-	--red: #ff0000;
+	--red: #e54c38;
 }
 
 .dark {
@@ -40,6 +35,13 @@ html {
 	--clr-bg-light: var(--grey-light);
 	--clr-fg: var(--grey-dark);
 	--clr-accent: var(--gold);
+}
+
+body,
+html {
+	max-height: 100vh;
+	background-color: var(--clr-bg);
+	overflow: hidden;
 }
 
 *,
@@ -94,6 +96,18 @@ h2 {
 h3 {
 	font-size: clamp(1.8rem, 2vw + 0.1rem, 3rem);
 	line-height: 1.9rem;
+}
+
+.jobsContent .description div h4 {
+	background-color: var(--clr-fg);
+	color: var(--clr-bg);
+	display: inline-block;
+	padding-inline: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.title h3 {
+	margin-bottom: 1rem;
 }
 
 h4 {
@@ -163,7 +177,7 @@ p {
 		font-family: var(--font-primary-sans);
 		font-weight: 700;
 		color: var(--clr-fg);
-		font-size: 2vh;
+		font-size: 1.6vh;
 		text-transform: uppercase;
 		text-decoration: none;
 		transition: color 500ms ease-in-out;
@@ -433,6 +447,7 @@ section {
 		padding-left: 1rem;
 		border-left: 3px solid var(--clr-fg);
 		height: 200px;
+		max-width: 574px;
 	}
 
 	h4 {
@@ -442,27 +457,32 @@ section {
 	}
 
 	ul {
+		margin-top: 1rem;
 		list-style: none;
+		list-style-position: outside;
+
+		li + li {
+			margin-top: 0.75rem;
+		}
 
 		li {
-			margin-left: -0.5rem;
-			text-indent: 0.5rem;
-			font-size: 0.9rem;
+			position: relative;
+			margin-left: 1rem;
+			font-size: 16px;
 			font-family: var(--font-primary-sans);
 			font-weight: 400;
+			word-wrap: none;
 		}
 
 		li::before {
-			content: '▶';
+			content: '▶ ';
+			position: absolute;
+			top: 5px;
+			left: -15px;
 			font-family: 'Fira Code', monospace;
-			font-size: 0.45rem;
+			font-size: 8px;
 			vertical-align: 25%;
 		}
-
-		// li::after {
-		// 	content: "';";
-		// 	font-family: 'Fira Code', monospace;
-		// }
 	}
 }
 
@@ -471,10 +491,9 @@ img:not(.card) {
 	height: 300px;
 }
 
-// img.card {
-// 	max-width: 480px;
-// 	height: auto;
-// }
+img.card {
+	border: 3px solid var(--clr-fg);
+}
 
 .technologies {
 	display: flex;
@@ -517,6 +536,10 @@ textarea {
 		background-color: var(--clr-bg-a50);
 		display: flex;
 		flex-direction: column;
+
+		*:not(span) {
+			background-color: transparent;
+		}
 
 		h5 {
 			margin-bottom: 0.75rem;
@@ -591,6 +614,12 @@ form {
 		background-color: var(--clr-bg);
 	}
 
+	input.error,
+	textarea.error,
+	textarea:focus.error {
+		border: 2px solid var(--red);
+	}
+
 	textarea {
 		resize: vertical;
 	}
@@ -614,6 +643,7 @@ form {
 		font-weight: 500;
 		text-transform: capitalize;
 		margin-top: 0.75rem;
+		cursor: pointer;
 	}
 
 	* {
@@ -638,7 +668,9 @@ form {
 	height: 100vh;
 
 	p {
+		margin-top: 0.75rem;
 		margin-bottom: 0;
+		line-height: 1.25rem;
 	}
 }
 
@@ -704,6 +736,7 @@ form {
 			flex-direction: row;
 			overflow-x: scroll;
 			border-bottom: 3px solid var(--clr-fg);
+			width: min-content;
 
 			p {
 				word-break: keep-all;
@@ -762,7 +795,7 @@ form {
 	}
 
 	.card:nth-child(even) {
-		flex-direction: column;
+		flex-direction: column-reverse;
 	}
 }
 
@@ -783,4 +816,8 @@ form {
 	animation: slideInFromBottom 750ms ease-in-out, opacityUp 1.25s ease-in-out;
 	animation-fill-mode: forwards;
 	animation-delay: 300ms;
+}
+
+* {
+	background-color: var(--clr-bg);
 }

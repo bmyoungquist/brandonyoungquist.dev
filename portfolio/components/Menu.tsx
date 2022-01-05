@@ -32,7 +32,7 @@ const Menu = () => {
 				Math.min(
 					Math.max(
 						0.3,
-						(scrollDiv.scrollTop / scrollDiv.scrollHeight) * 134
+						(scrollDiv.scrollTop / scrollDiv.scrollHeight) * 136.5
 					),
 					98.2
 				) + '%';

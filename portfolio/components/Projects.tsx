@@ -5,7 +5,8 @@ interface IProject {
 	title: string;
 	technologies: string[];
 	description: string;
-	imageUrl: string;
+	imageUrlDark: string;
+	imageUrlLight: string;
 	githubUrl?: string;
 	demoUrl?: string;
 	index: number;
@@ -13,8 +14,10 @@ interface IProject {
 
 const Projects: React.FunctionComponent = () => {
 	const [projects, setProjects] = useState([] as IProject[]);
+	let theme: string = '';
 
 	useEffect(() => {
+		theme = document.getElementById('theme')!.classList[0];
 		fetch(
 			'../data/projects.json',
 
@@ -47,7 +50,11 @@ const Projects: React.FunctionComponent = () => {
 				let img = (
 					<img
 						className="card"
-						src={project.imageUrl}
+						src={
+							theme === 'dark'
+								? project.imageUrlLight
+								: project.imageUrlDark
+						}
 						alt={project.title}
 					/>
 				);
