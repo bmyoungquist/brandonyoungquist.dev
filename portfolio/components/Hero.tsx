@@ -8,9 +8,9 @@ const Hero = () => {
 				</div>
 				<h3>I develop full stack applications for the web.</h3>
 				<p>
-					I'm a full stack software engineer that builds applications
-					for the web. Currently, I work for a company building
-					financial web apps for local governments.
+					I&apos;m a full stack software engineer that builds
+					applications for the web. Currently, I work for a company
+					building financial web apps for local governments.
 				</p>
 			</div>
 		</section>

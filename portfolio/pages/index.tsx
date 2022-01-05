@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Script from 'next/script';
 import { Fragment, useEffect } from 'react';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
@@ -11,12 +12,10 @@ import Head from 'next/head';
 const Home: NextPage = () => {
 	return (
 		<Fragment>
-			<Head>
-				<script
-					src="https://kit.fontawesome.com/ae21b110a4.js"
-					crossOrigin="anonymous"
-				></script>
-			</Head>
+			<Script
+				src="https://kit.fontawesome.com/ae21b110a4.js"
+				crossOrigin="anonymous"
+			></Script>
 			<div id="theme" className="dark">
 				<Hero />
 				<AboutMe />

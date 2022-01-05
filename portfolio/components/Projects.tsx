@@ -81,14 +81,22 @@ const Projects: React.FunctionComponent = () => {
 						</p>
 						<div className="links">
 							{project.githubUrl ? (
-								<a href={project.githubUrl} target="_blank">
+								<a
+									href={project.githubUrl}
+									target="_blank"
+									rel="noreferrer"
+								>
 									<i className="fab fa-github"></i>
 								</a>
 							) : (
 								''
 							)}
 							{project.demoUrl ? (
-								<a href={project.demoUrl} target="_blank">
+								<a
+									href={project.demoUrl}
+									target="_blank"
+									rel="noreferrer"
+								>
 									<i className="fas fa-external-link-alt"></i>
 								</a>
 							) : (

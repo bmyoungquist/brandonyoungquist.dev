@@ -205,6 +205,7 @@ const Menu = () => {
 						<a
 							href="https://www.linkedin.com/in/brandonyoungquist/"
 							target="_blank"
+							rel="noreferrer"
 						>
 							<i className="fab fa-linkedin-in"></i>
 						</a>
@@ -216,6 +217,7 @@ const Menu = () => {
 						<a
 							href="https://github.com/bmyoungquist"
 							target="_blank"
+							rel="noreferrer"
 						>
 							<i className="fab fa-github"> </i>
 						</a>
@@ -224,7 +226,11 @@ const Menu = () => {
 						</div>
 					</div>
 					<div className="otherLink">
-						<a href="mailto:brandon@youngquist.dev" target="_blank">
+						<a
+							href="mailto:brandon@youngquist.dev"
+							target="_blank"
+							rel="noreferrer"
+						>
 							<i className="fas fa-envelope"> </i>
 						</a>
 						<div className="help">
