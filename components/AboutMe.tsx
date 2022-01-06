@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Section from './Section';
 
 const AboutMe: React.FunctionComponent = () => {
@@ -21,7 +22,7 @@ const AboutMe: React.FunctionComponent = () => {
 					financial web apps for local governments.
 				</p>
 			</div>
-			<img src="../img/headshot.jpg" alt="headshot" />
+			<Image src="../img/headshot.jpg" alt="headshot" />
 		</Section>
 	);
 };
