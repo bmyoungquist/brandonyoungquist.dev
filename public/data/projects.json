@@ -3,20 +3,10 @@
 		"title": "Portfolio Website",
 		"technologies": ["typescript", "react", "next.js", "vercel", "scss"],
 		"description": "The portfolio website that you are currently looking at. Built with Next.js and hosted on Vercel.",
-		"imageUrlDark": "../img/portfolio-light.png",
-		"imageUrlLight": "../img/portfolio-dark.png",
+		"imageUrlDark": "/images/portfolio-light.png",
+		"imageUrlLight": "/images/portfolio-dark.png",
 		"githubUrl": "https://github.com/bmyoungquist/new.brandonyoungquist.dev",
 		"demoUrl": "https://brandonyoungquist.dev",
 		"index": 1
-	},
-	{
-		"title": "Portfolio Website",
-		"technologies": ["typescript", "react", "next.js", "vercel", "scss"],
-		"description": "The portfolio website that you are currently looking at. Built with Next.js and hosted on Vercel.",
-		"imageUrlDark": "../img/portfolio-light.png",
-		"imageUrlLight": "../img/portfolio-dark.png",
-		"githubUrl": "https://github.com/bmyoungquist/new.brandonyoungquist.dev",
-		"demoUrl": "https://brandonyoungquist.dev",
-		"index": 2
 	}
 ]

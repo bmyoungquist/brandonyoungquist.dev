@@ -1,5 +1,3 @@
-import { ReactChildren } from 'react';
-
 interface IProps {
 	scrollTo: string;
 	className?: string;
@@ -12,13 +10,10 @@ const NavButton: React.FunctionComponent<IProps> = ({
 }) => {
 	const scrollToSection = () => {
 		console.log(scrollTo);
-		document
-			.getElementById(scrollTo)!
-			.scrollIntoView({
-				behavior: 'smooth',
-				block: 'nearest',
-				inline: 'start',
-			});
+		document.getElementById(scrollTo)!.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		});
 	};
 
 	return (

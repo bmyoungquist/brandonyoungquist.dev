@@ -49,7 +49,7 @@ const Projects: React.FunctionComponent = () => {
 		<Section id="projects" title="Projects">
 			{projects.map((project) => {
 				let img = (
-					<Image
+					<img
 						className="card"
 						src={
 							theme === 'dark'

@@ -22,7 +22,7 @@ const AboutMe: React.FunctionComponent = () => {
 					financial web apps for local governments.
 				</p>
 			</div>
-			<Image src="../img/headshot.jpg" alt="headshot" />
+			<img src="/images/headshot.jpg" alt="headshot" />
 		</Section>
 	);
 };
