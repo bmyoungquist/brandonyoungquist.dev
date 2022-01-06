@@ -1,4 +1,5 @@
 import { Fragment, useEffect } from 'react';
+import NavButton from './NavButton';
 
 const Menu = () => {
 	useEffect(() => {
@@ -9,11 +10,11 @@ const Menu = () => {
 		const jobs = document.getElementById('jobs')!;
 		const projects = document.getElementById('projects')!;
 		const contact = document.getElementById('contact')!;
-		const navHome = document.getElementById('navHome')!;
-		const navAbout = document.getElementById('navAbout')!;
-		const navJobs = document.getElementById('navJobs')!;
-		const navProjects = document.getElementById('navProjects')!;
-		const navContact = document.getElementById('navContact')!;
+		const navHome = document.getElementById('navhome')!;
+		const navAbout = document.getElementById('navabout')!;
+		const navJobs = document.getElementById('navjobs')!;
+		const navProjects = document.getElementById('navprojects')!;
+		const navContact = document.getElementById('navcontact')!;
 
 		navHome.style.top = cssPercent(home.offsetTop / scrollDiv.scrollHeight);
 		navAbout.style.top = cssPercent(
@@ -144,15 +145,15 @@ const Menu = () => {
 			) {
 				let activeAnchor = document.querySelector(
 					`a[href='#${section.id}']`
-				)!;
+				);
 
-				activeAnchor.classList.add('active');
+				activeAnchor?.classList.add('active');
 			} else {
 				let activeAnchor = document.querySelector(
 					`a[href='#${section.id}']`
-				)!;
+				);
 
-				activeAnchor.classList.remove('active');
+				activeAnchor?.classList.remove('active');
 			}
 		});
 	};
@@ -165,23 +166,11 @@ const Menu = () => {
 			<div id="menuItems">
 				<div className="scrollContainer">
 					<div id="nav">
-						<div id="navHome">
-							<a className="active" href="#home">
-								home
-							</a>
-						</div>
-						<div id="navAbout">
-							<a href="#about">about</a>
-						</div>
-						<div id="navJobs">
-							<a href="#jobs">experience</a>
-						</div>
-						<div id="navProjects">
-							<a href="#projects">projects</a>
-						</div>
-						<div id="navContact">
-							<a href="#contact">contact</a>
-						</div>
+						<NavButton scrollTo="home">home</NavButton>
+						<NavButton scrollTo="about">about</NavButton>
+						<NavButton scrollTo="jobs">experience</NavButton>
+						<NavButton scrollTo="projects">projects</NavButton>
+						<NavButton scrollTo="contact">contact</NavButton>
 					</div>
 					<div className="scroll"></div>
 					<div id="scrollPointer" className="scrollPointer"></div>
