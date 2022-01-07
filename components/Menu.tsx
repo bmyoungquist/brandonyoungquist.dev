@@ -3,28 +3,6 @@ import NavButton from './NavButton';
 
 const Menu = () => {
 	useEffect(() => {
-		// const home = document.getElementById('home')!;
-		// const about = document.getElementById('about')!;
-		// const jobs = document.getElementById('jobs')!;
-		// const projects = document.getElementById('projects')!;
-		// const contact = document.getElementById('contact')!;
-		// const navHome = document.getElementById('navhome')!;
-		// const navAbout = document.getElementById('navabout')!;
-		// const navJobs = document.getElementById('navjobs')!;
-		// const navProjects = document.getElementById('navprojects')!;
-		// const navContact = document.getElementById('navcontact')!;
-
-		// navHome.style.top = cssPercent(home.offsetTop / scrollDiv.scrollHeight);
-		// navAbout.style.top = cssPercent(
-		// 	about.offsetTop / scrollDiv.scrollHeight
-		// );
-		// navJobs.style.top = cssPercent(jobs.offsetTop / scrollDiv.scrollHeight);
-		// navProjects.style.top = cssPercent(
-		// 	projects.offsetTop / scrollDiv.scrollHeight
-		// );
-		// navContact.style.top = cssPercent(
-		// 	contact.offsetTop / scrollDiv.scrollHeight
-		// );
 		const scrollDiv = document.getElementById('theme')!;
 		const scrollPointer = document.getElementById('scrollPointer')!;
 
@@ -68,7 +46,15 @@ const Menu = () => {
 			window.matchMedia('(prefers-color-scheme: dark)').matches
 		) {
 			setTheme('dark');
+		} else {
+			setTheme('light');
 		}
+
+		window
+			.matchMedia('(prefers-color-scheme: dark)')
+			.addEventListener('change', (e) => {
+				setTheme(e.matches ? 'dark' : 'light');
+			});
 	}, []);
 
 	const cssPercent = (percentAsDecimal: number) => {
@@ -135,22 +121,19 @@ const Menu = () => {
 		const sections = document.querySelectorAll('section');
 
 		sections.forEach((section) => {
-			const contentTop = document.getElementById('theme')!.scrollTop;
-			const sectionTop = section.offsetTop;
 			const sectionHeight = section.scrollHeight;
-			// (contentTop >= sectionTop - sectionHeight) / 2
 			if (
 				section.getBoundingClientRect().top + sectionHeight > 0 &&
 				section.getBoundingClientRect().top < window.innerHeight
 			) {
 				let activeAnchor = document.querySelector(
-					`a[href='#${section.id}']`
+					`div#nav${section.id} a`
 				);
 
 				activeAnchor?.classList.add('active');
 			} else {
 				let activeAnchor = document.querySelector(
-					`a[href='#${section.id}']`
+					`div#nav${section.id} a`
 				);
 
 				activeAnchor?.classList.remove('active');
@@ -183,7 +166,10 @@ const Menu = () => {
 						</div>
 					</div>
 					<div className="otherLink">
-						<a href="/BrandonYoungquist_Resume.pdf" target="_blank">
+						<a
+							href="/docs/BrandonYoungquist_Resume.pdf"
+							target="_blank"
+						>
 							<i className="fas fa-file-download"></i>
 						</a>
 						<div className="help">
