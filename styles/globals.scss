@@ -456,6 +456,15 @@ section {
 		font-family: 'Fira Code', monospace;
 	}
 
+	h5 {
+		font-family: var(--font-primary-mono);
+		font-weight: 400;
+		text-indent: 0.5rem;
+		font-size: 0.9rem;
+		margin: 0;
+		padding: 0;
+	}
+
 	ul {
 		margin-top: 1rem;
 		list-style: none;
@@ -484,6 +493,10 @@ section {
 			vertical-align: 25%;
 		}
 	}
+}
+
+.navButton {
+	cursor: pointer;
 }
 
 img:not(.card) {

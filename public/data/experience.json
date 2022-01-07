@@ -2,6 +2,8 @@
 	{
 		"company": "LOCiS",
 		"title": "Software Developer",
+		"fromMonth": "October 2019",
+		"toMonth": "Present",
 		"bulletPoints": [
 			"Created performant financial web apps for local governments",
 			"Communicated specific software solutions to non-technical people",
@@ -12,6 +14,8 @@
 	{
 		"company": "North Central College",
 		"title": "Resident Assistant",
+		"fromMonth": "September 2016",
+		"toMonth": "June 2018",
 		"bulletPoints": [
 			"Managed, mentored, and fostered relationships amongst 40 students",
 			"Mediated interpersonal disputes",

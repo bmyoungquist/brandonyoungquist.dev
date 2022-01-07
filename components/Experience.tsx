@@ -5,6 +5,8 @@ import Section from './Section';
 interface IJob {
 	company: string;
 	title: string;
+	fromMonth: string;
+	toMonth: string;
 	bulletPoints: string[];
 	index: number;
 }
@@ -79,8 +81,6 @@ const Experience: React.FunctionComponent = () => {
 						</p>
 					);
 				})}
-				{/* <p className="active">LOCiS</p>
-				<p>North Central College</p> */}
 			</div>
 			<div className="description">
 				{jobs.map((job) => {
@@ -91,6 +91,9 @@ const Experience: React.FunctionComponent = () => {
 							className={job.index === 1 ? 'active' : ''}
 						>
 							<h4>{job.title}</h4>
+							<h5>
+								{job.fromMonth} - {job.toMonth}
+							</h5>
 							<ul>
 								{job.bulletPoints.map((bullet) => {
 									return <li key={bullet}>{bullet}</li>;

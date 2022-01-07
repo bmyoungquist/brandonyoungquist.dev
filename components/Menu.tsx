@@ -3,30 +3,30 @@ import NavButton from './NavButton';
 
 const Menu = () => {
 	useEffect(() => {
+		// const home = document.getElementById('home')!;
+		// const about = document.getElementById('about')!;
+		// const jobs = document.getElementById('jobs')!;
+		// const projects = document.getElementById('projects')!;
+		// const contact = document.getElementById('contact')!;
+		// const navHome = document.getElementById('navhome')!;
+		// const navAbout = document.getElementById('navabout')!;
+		// const navJobs = document.getElementById('navjobs')!;
+		// const navProjects = document.getElementById('navprojects')!;
+		// const navContact = document.getElementById('navcontact')!;
+
+		// navHome.style.top = cssPercent(home.offsetTop / scrollDiv.scrollHeight);
+		// navAbout.style.top = cssPercent(
+		// 	about.offsetTop / scrollDiv.scrollHeight
+		// );
+		// navJobs.style.top = cssPercent(jobs.offsetTop / scrollDiv.scrollHeight);
+		// navProjects.style.top = cssPercent(
+		// 	projects.offsetTop / scrollDiv.scrollHeight
+		// );
+		// navContact.style.top = cssPercent(
+		// 	contact.offsetTop / scrollDiv.scrollHeight
+		// );
 		const scrollDiv = document.getElementById('theme')!;
 		const scrollPointer = document.getElementById('scrollPointer')!;
-		const home = document.getElementById('home')!;
-		const about = document.getElementById('about')!;
-		const jobs = document.getElementById('jobs')!;
-		const projects = document.getElementById('projects')!;
-		const contact = document.getElementById('contact')!;
-		const navHome = document.getElementById('navhome')!;
-		const navAbout = document.getElementById('navabout')!;
-		const navJobs = document.getElementById('navjobs')!;
-		const navProjects = document.getElementById('navprojects')!;
-		const navContact = document.getElementById('navcontact')!;
-
-		navHome.style.top = cssPercent(home.offsetTop / scrollDiv.scrollHeight);
-		navAbout.style.top = cssPercent(
-			about.offsetTop / scrollDiv.scrollHeight
-		);
-		navJobs.style.top = cssPercent(jobs.offsetTop / scrollDiv.scrollHeight);
-		navProjects.style.top = cssPercent(
-			projects.offsetTop / scrollDiv.scrollHeight
-		);
-		navContact.style.top = cssPercent(
-			contact.offsetTop / scrollDiv.scrollHeight
-		);
 
 		scrollDiv.onscroll = () => {
 			let percent =
