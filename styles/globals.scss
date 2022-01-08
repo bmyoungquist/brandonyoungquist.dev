@@ -804,6 +804,15 @@ form {
 		z-index: 30;
 		opacity: 100%;
 	}
+
+	#nav > * {
+		transform: rotate(0deg);
+		transform: translateY(2rem);
+
+		a {
+			font-size: 0.8rem;
+		}
+	}
 }
 
 @media (max-width: 799px) {

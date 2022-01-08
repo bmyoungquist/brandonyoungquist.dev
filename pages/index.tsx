@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Script from 'next/script';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Menu from '../components/Menu';
@@ -12,6 +12,9 @@ import Head from 'next/head';
 const Home: NextPage = () => {
 	return (
 		<Fragment>
+			<Head>
+				<title>Brandon Youngquist</title>
+			</Head>
 			<Script
 				src="https://kit.fontawesome.com/ae21b110a4.js"
 				crossOrigin="anonymous"

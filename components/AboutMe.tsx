@@ -6,13 +6,12 @@ const AboutMe: React.FunctionComponent = () => {
 		<Section id="about" title="About Me">
 			<div className="paragraphs">
 				<p>
-					Hi! My name is Brandon and I develope software for the web.
-					My main interests include developing APIs, data
-					visualization, and data science from a software engineering
-					point of view.
+					Hi! My name is Brandon and I develop software for the web.
+					My main interests include APIs, web development data
+					visualization, and data science.
 				</p>
 				<p>
-					I love building productivity tools. I am always thinking
+					I love building productivity tools and I am always thinking
 					about about how to get things done in a more efficient
 					manner.
 				</p>
