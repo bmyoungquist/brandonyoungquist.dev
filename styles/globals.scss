@@ -617,6 +617,33 @@ form {
 	border: 3px solid var(--clr-fg);
 	margin-top: -0.5rem;
 
+	div.input {
+		width: 100%;
+		display: flex;
+		flex-direction: column-reverse;
+		margin-bottom: 0;
+
+		input,
+		textarea {
+			width: 100%;
+		}
+
+		label {
+			display: inline-block;
+			font-family: var(--font-primary-mono);
+			background-color: var(--clr-bg-light);
+			color: var(--clr-bg);
+			font-size: 0.75rem;
+			margin: 0;
+			padding: 2px 4px 0px 4px;
+
+			span.required {
+				font-size: 0.75rem;
+				color: inherit;
+			}
+		}
+	}
+
 	input:not([type='submit']),
 	textarea {
 		padding: 0.5rem;
@@ -644,23 +671,77 @@ form {
 		outline: none;
 	}
 
-	input[type='submit'] {
+	button[type='submit'] {
+		padding: 5px;
+		margin: 0;
 		background-color: var(--clr-fg);
 		color: var(--clr-bg);
 		border-radius: 0;
 		border: none;
-		padding: 0.5rem;
-		width: 100px;
+		width: max-content;
 		font-family: var(--font-primary-mono);
 		font-size: 1rem;
-		font-weight: 500;
+		font-weight: 700;
 		text-transform: capitalize;
-		margin-top: 0.75rem;
+		margin-top: 0.5rem;
 		cursor: pointer;
+		vertical-align: center;
+
+		.buttonContents {
+			margin: 0;
+			padding: 10px;
+			color: var(--clr-bg);
+			i {
+				color: var(--clr-bg);
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+
+	button[type='submit'].disabled {
+		background-color: var(--clr-bg-light);
+		cursor: default;
 	}
 
 	* {
 		margin-bottom: 0.5rem;
+	}
+
+	div.input {
+		width: 100%;
+		display: flex;
+		flex-direction: column-reverse;
+		margin-bottom: 0;
+
+		input,
+		textarea {
+			width: 100%;
+		}
+
+		label {
+			display: inline-block;
+			font-family: var(--font-primary-mono);
+			background-color: var(--clr-bg-light);
+			color: var(--clr-bg);
+			font-size: 0.75rem;
+			font-weight: 700;
+			margin: 0;
+			padding: 4px 0.5rem 0px 0.5rem;
+			transition: color 0.5s ease-in-out;
+		}
+	}
+
+	input:not([type='submit']):focus + label,
+	textarea:focus + label {
+		transition: color 0s ease-in-out;
+		background-color: var(--clr-fg);
+	}
+
+	input.error + label,
+	textarea.error + label,
+	textarea:focus.error + label {
+		background-color: var(--red);
 	}
 }
 
@@ -829,4 +910,33 @@ form {
 	animation: slideInFromBottom 750ms ease-in-out, opacityUp 1.25s ease-in-out;
 	animation-fill-mode: forwards;
 	animation-delay: 300ms;
+}
+
+@keyframes bang {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+.hoverme {
+	width: 240px;
+	margin: 150px auto 0;
+	text-align: center;
+	padding: 10px 0;
+	cursor: pointer;
+	position: relative;
+	span {
+		color: #333;
+		font-size: 0.9em;
+	}
+	i {
+		position: absolute;
+		display: block;
+		left: 50%;
+		top: 0;
+		width: 3px;
+		height: 8px;
+		background: red;
+		opacity: 0;
+	}
 }
