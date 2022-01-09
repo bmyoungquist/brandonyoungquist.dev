@@ -63,11 +63,9 @@ const email = async (req: NextApiRequest, res: NextApiResponse) => {
 
 			res.status(200).json(emailStatus);
 			res.end();
-			return resolve();
+			return;
 		});
 	});
-
-	return resolve();
 };
 
 export default email;
