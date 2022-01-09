@@ -1,9 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
-import IEmail from '../../interfaces/Email';
+import { resolve } from 'path/posix';
+import { IEmail, IEmailStatus } from '../../interfaces/Email';
 
 const email = (req: NextApiRequest, res: NextApiResponse) => {
-	const emailData = JSON.parse(req.body);
+	let emailStatus: IEmailStatus = {
+		sentToBrandon: false,
+		sentToSubmitter: false,
+	};
+
+	const emailData: IEmail = JSON.parse(req.body);
 
 	let transporter = nodemailer.createTransport({
 		host: process.env.SMTP_SERVER,
@@ -15,8 +21,9 @@ const email = (req: NextApiRequest, res: NextApiResponse) => {
 		},
 	});
 
-	let mailOptions: nodemailer.SendMailOptions = {
+	let brandonMailOptions: nodemailer.SendMailOptions = {
 		from: process.env.SMTP_NO_REPLY,
+		replyTo: process.env.SMTP_BRANDON,
 		to: 'bmyoungquist@gmail.com',
 		subject: 'New Message from Portfolio Website!',
 		text: `
@@ -29,10 +36,38 @@ const email = (req: NextApiRequest, res: NextApiResponse) => {
         `,
 	};
 
-	transporter.sendMail(mailOptions, (error, info) => {
-		if (error) console.log(error);
-		else console.log('successfully sent mail ' + info);
-		res.json({});
+	let submitterMailOptions: nodemailer.SendMailOptions = {
+		from: process.env.SMTP_BRANDON,
+		replyTo: process.env.SMTP_BRANDON,
+		to: emailData.emailAddress.value,
+		subject: 'Thanks for sending me a message!',
+		html: `Thank you for sending me a message via my website, I will get back to you as soon as possible. Have a great rest of your day! <br/><br/>
+        
+        Brandon Youngquist <br/>
+        <a href='https://www.brandonyoungquist.dev' target='_blank' rel='noopener noreferrer'>brandonyoungquist.dev</a>`,
+	};
+
+	transporter.sendMail(brandonMailOptions, (error, info) => {
+		if (error) {
+			emailStatus.sentToBrandon = false;
+			res.json(emailStatus);
+			res.status(200).end();
+			resolve();
+		} else {
+			emailStatus.sentToBrandon = true;
+
+			transporter.sendMail(submitterMailOptions, (error, info) => {
+				if (error) {
+					emailStatus.sentToBrandon = false;
+				} else {
+					emailStatus.sentToBrandon = true;
+				}
+
+				res.json(emailStatus);
+				res.status(200).end();
+				resolve();
+			});
+		}
 	});
 };
 

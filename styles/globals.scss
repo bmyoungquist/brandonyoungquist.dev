@@ -19,6 +19,7 @@
 	--gold: #f6be00;
 	--gold-dark: #b68b00;
 	--red: #e54c38;
+	--green: #5dc360;
 }
 
 .dark {
@@ -690,12 +691,27 @@ form {
 		.buttonContents {
 			margin: 0;
 			padding: 10px;
+			min-width: 130px;
+			height: 50px;
+			overflow: hidden;
 			color: var(--clr-bg);
 			i {
 				color: var(--clr-bg);
 				margin: 0;
 				padding: 0;
 			}
+
+			svg {
+				margin-bottom: 0;
+			}
+		}
+
+		&.warning {
+			background-color: var(--gold);
+		}
+
+		&.success {
+			background-color: var(--green);
 		}
 	}
 
@@ -938,11 +954,11 @@ form {
 		color: #333;
 		font-size: 0.9em;
 	}
-	i {
+	div.confetti {
 		position: absolute;
 		display: block;
 		left: 50%;
-		top: 0;
+		top: 40%;
 		width: 3px;
 		height: 8px;
 		background: red;

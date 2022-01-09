@@ -1,4 +1,4 @@
-export default interface IEmail {
+export interface IEmail {
 	emailAddress: {
 		value: string;
 		valid: boolean;
@@ -11,4 +11,9 @@ export default interface IEmail {
 		value: string;
 		valid: boolean;
 	};
+}
+
+export interface IEmailStatus {
+	sentToBrandon: boolean;
+	sentToSubmitter: boolean;
 }
