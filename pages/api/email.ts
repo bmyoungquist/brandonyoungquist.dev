@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import { resolve } from 'path/posix';
 import { IEmail, IEmailStatus } from '../../interfaces/Email';
 
-const email = (req: NextApiRequest, res: NextApiResponse) => {
+const email = async (req: NextApiRequest, res: NextApiResponse) => {
 	let emailStatus: IEmailStatus = {
 		sentToBrandon: false,
 		sentToSubmitter: false,
@@ -50,25 +50,24 @@ const email = (req: NextApiRequest, res: NextApiResponse) => {
 	transporter.sendMail(brandonMailOptions, (error, info) => {
 		if (error) {
 			emailStatus.sentToBrandon = false;
-			res.json(emailStatus);
-			res.status(200).end();
-			return resolve();
 		} else {
 			emailStatus.sentToBrandon = true;
-
-			transporter.sendMail(submitterMailOptions, (error, info) => {
-				if (error) {
-					emailStatus.sentToBrandon = false;
-				} else {
-					emailStatus.sentToBrandon = true;
-				}
-
-				res.json(emailStatus);
-				res.status(200).end();
-				return resolve();
-			});
 		}
+
+		transporter.sendMail(submitterMailOptions, (error, info) => {
+			if (error) {
+				emailStatus.sentToSubmitter = false;
+			} else {
+				emailStatus.sentToSubmitter = true;
+			}
+
+			res.status(200).json(emailStatus);
+			res.end();
+			return resolve();
+		});
 	});
+
+	return resolve();
 };
 
 export default email;
