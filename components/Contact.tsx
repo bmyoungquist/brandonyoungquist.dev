@@ -113,7 +113,10 @@ const Contact: React.FunctionComponent = () => {
 			method: 'post',
 			body: JSON.stringify(email),
 		})
-			.then((response: Response) => response.json())
+			.then((response: Response) => {
+				console.log(response);
+				return response.json();
+			})
 			.then((emailStatus: IEmailStatus) => {
 				console.log(emailStatus);
 				let submitButton = document.querySelector(
