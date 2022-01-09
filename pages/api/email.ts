@@ -52,7 +52,7 @@ const email = (req: NextApiRequest, res: NextApiResponse) => {
 			emailStatus.sentToBrandon = false;
 			res.json(emailStatus);
 			res.status(200).end();
-			resolve();
+			return resolve();
 		} else {
 			emailStatus.sentToBrandon = true;
 
@@ -65,7 +65,7 @@ const email = (req: NextApiRequest, res: NextApiResponse) => {
 
 				res.json(emailStatus);
 				res.status(200).end();
-				resolve();
+				return resolve();
 			});
 		}
 	});
