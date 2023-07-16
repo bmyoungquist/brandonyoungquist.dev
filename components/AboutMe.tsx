@@ -7,7 +7,7 @@ const AboutMe: React.FunctionComponent = () => {
 			<div className="paragraphs">
 				<p>
 					Hi! My name is Brandon and I develop software for the web.
-					My main interests include APIs, web development data
+					My main interests include APIs, web development, data
 					visualization, and data science.
 				</p>
 				<p>
@@ -17,8 +17,8 @@ const AboutMe: React.FunctionComponent = () => {
 				</p>
 				<p>
 					Professionaly, I have worked with the full stack of
-					Microsoft development tools and libraries to create
-					financial web apps for local governments.
+					Microsoft development tools and libraries to create web apps 
+					for the financial world.
 				</p>
 			</div>
 			{/* <img src="/images/headshot.jpg" alt="headshot" /> */}
