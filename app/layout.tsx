@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Noto_Sans_JP, Fira_Code } from "next/font/google"
 import "./globals.css"
 import NavBar from '@/components/nav/nav'
+import Footer from '@/components/footer'
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -32,12 +33,13 @@ export default function RootLayout ({
 	return (
 		<html lang="en">
 			<body
-				className={`${inter.variable} ${notoSansJP.variable} ${firaCode.variable} antialiased font-main`}
+				className={`${inter.variable} ${notoSansJP.variable} ${firaCode.variable} antialiased font-main min-w-screen min-h-screen max-w-screen overflow-x-hidden flex flex-col justify-between`}
 			>
 				<NavBar />
-				<div className="p-4">
+				<div className="max-w-screen md:p-8 p-6 mb-auto">
 					{children}
 				</div>
+				<Footer />
 			</body>
 		</html>
 	)

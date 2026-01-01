@@ -1,0 +1,15 @@
+[
+	{
+		"title": "Keep It Stupid Simple!",
+		"subHeader": "Unchecked ambition is the number one killer of motivation.",
+		"publishDate": "2025-04-13",
+		"slug": "keep-it-stupid-simple",
+		"body": "<style>p {text-indent:1rem;margin-bottom:1rem;}</style><p>I started designing this version of my website in April of 2025 but I'm only publishing it now on January 1, 2026. I wanted this version of my website to be perfect, so I held off on putting it up. The scope of the project kept growing and as a consequence, it kept pushing back the launch date.</p><p>The MVP I was demanding from myself grew to something unreasonable. As a result, I just quit working on it. It transformed from something that was fun to develop into something more akin to a chore.</p><p>To fix this, I've stripped everything back to what's essential so that I can publish something, even if it's not the coolest personal website on the planet. That doesn't mean that it's not something that I can't be or am not proud of - I wouldn't put it out there if I wasn't. It means that I'm taking a better approach to actually accomplishing my goal.</p>",
+		"gradient": "background-color:#fcff99;background-image:radial-gradient(at 1% 41%, hsla(18,91%,64%,1) 0px, transparent 50%),radial-gradient(at 80% 7%, hsla(270,77%,74%,1) 0px, transparent 50%),radial-gradient(at 84% 66%, hsla(157,79%,63%,1) 0px, transparent 50%),radial-gradient(at 4% 4%, hsla(27,74%,75%,1) 0px, transparent 50%),radial-gradient(at 93% 39%, hsla(164,97%,63%,1) 0px, transparent 50%),radial-gradient(at 22% 3%, hsla(12,89%,77%,1) 0px, transparent 50%),radial-gradient(at 50% 61%, hsla(57,98%,72%,1) 0px, transparent 50%);",
+		"tags": [
+			"philosophy",
+			"motivation"
+		],
+		"enabled": true
+	}
+]

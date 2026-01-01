@@ -1,0 +1,28 @@
+[
+	{
+		"relativePath": "/photos/UrbanJungle.jpg",
+		"title": "Urban Jungle",
+		"subTitle": "シガイ ジャングル",
+		"alt": "a concrete staircase wraping around a single tree seen from afar through surrounding foliage",
+		"orientation": "portrait",
+		"objectPosition": "center",
+		"enabled": true
+	},
+	{
+		"relativePath": "/photos/UnmovingAbgeweit.JPG",
+		"title": "Unmoving Abegweit",
+		"subTitle": "フドウ アベグウィーット",
+		"alt": "a photo of the ship that goes by the name of the abgeweit.",
+		"orientation": "portrait",
+		"objectPosition": "center",
+		"enabled": true
+	},
+	{
+		"relativePath": "/photos/RatRace.jpg",
+		"title": "Rat Race",
+		"subTitle": "ラット レース",
+		"orientation": "landscape",
+		"alt": "long exposure photo of a Lakeshore Drive during rush hour at night, giving a sense of motion to the thousands of cars that commuters drive to and from work every weekday.",
+		"enabled": true
+	}
+]

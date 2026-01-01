@@ -1,21 +1,23 @@
+import Link from 'next/link'
 import FullWidthText from './full-width-text'
 
 interface NavItemProps {
-	id: string;
-	menuTitle: string;
-	katakana: string;
+	id: string
+	menuTitle: string
+	katakana: string
+	href: string
 }
 
-export default function NavItem({ id, menuTitle, katakana }: NavItemProps) {
+export default function NavItem ({ id, menuTitle, katakana, href }: NavItemProps) {
 	return (
-		<div className="flex flex-col cursor-pointer">
+		<Link href={href} className="flex flex-col cursor-pointer">
 			<span className='text-xl font-black uppercase -mb-1'>
 				{menuTitle}
 			</span>
 			<FullWidthText
 				id={id}
-				katakana={katakana} 
-				className='text-xs'/>
-		</div>
+				text={katakana}
+				className='text-xs' />
+		</Link>
 	)
 }
