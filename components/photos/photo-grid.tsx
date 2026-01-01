@@ -54,7 +54,7 @@ export default function PhotoGrid ({ photos, titleSize, subtitleSize, titleClass
 												) :
 												(
 													<img
-														className='object-scale-down min-h-fit max-h-[80svh] max-w-full min-w-full rounded select-none'
+														className='object-scale-down max-h-[80svh] max-w-full min-w-full rounded select-none'
 														src={photo.relativePath}
 														alt={photo.alt}
 													/>

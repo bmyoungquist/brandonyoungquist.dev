@@ -44,12 +44,6 @@
 	--radius-xl: calc(var(--radius) + 4px);
 }
 
-body {
-	font-family: var(--font-inter);
-	padding: 0;
-	margin: 0;
-}
-
 img {
 	pointer-events: none;
 }
@@ -142,5 +136,8 @@ img {
 
 	body {
 		@apply bg-background text-foreground;
+		font-family: var(--font-inter);
+		padding: 0;
+		margin: 0;
 	}
 }
