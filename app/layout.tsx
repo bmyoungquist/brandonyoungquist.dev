@@ -4,6 +4,7 @@ import "./globals.css"
 import NavBar from '@/components/nav/nav'
 import Footer from '@/components/footer'
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
 	title: {
@@ -42,6 +43,7 @@ export default function RootLayout ({
 				<div className="max-w-screen md:p-8 p-6 mb-auto">
 					{children}
 					<Analytics />
+					<SpeedInsights />
 				</div>
 				<Footer />
 			</body>
