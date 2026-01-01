@@ -1,6 +1,25 @@
 import Link from 'next/link'
 import Posts from '../post-list.json'
 import PostHeader from './gradient'
+import type { Metadata } from 'next'
+
+type Props = {
+	params: Promise<{ slug: string }>
+	searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export async function generateMetadata (
+	{ params }: Props
+): Promise<Metadata> {
+	const slug = (await params).slug
+
+	const post = Posts.find(post => post.slug === slug)
+
+	return {
+		title: post?.title,
+		description: post?.subHeader,
+	}
+}
 
 export default async function Post ({
 	params,
