@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_JP, Fira_Code } from "next/font/google"
 import "./globals.css"
 import NavBar from '@/components/nav/nav'
 import Footer from '@/components/footer'
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
 	title: {
@@ -40,6 +41,7 @@ export default function RootLayout ({
 				<NavBar />
 				<div className="max-w-screen md:p-8 p-6 mb-auto">
 					{children}
+					<Analytics />
 				</div>
 				<Footer />
 			</body>
