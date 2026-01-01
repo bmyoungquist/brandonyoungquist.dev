@@ -20,7 +20,7 @@ export default function PostList ({ posts }: PostListProps) {
 			<Filters />
 			{
 				posts.filter(post => tags ? tags.every(tag => post.tags.includes(tag)) : true).map((post, ix) => (
-					<Fragment key={post.slug}>
+					<Fragment key={ix.toString() + '-' + post.slug}>
 						<div className={cn(`min-w-full`, (post.body ? '' : 'opacity-50'), ' border-2 rounded-md p-4')}>
 							<PostPreview {...post} />
 						</div>

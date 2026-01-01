@@ -12,7 +12,7 @@ interface FilterListProps {
 	variant?: string
 }
 
-export default function FilterList ({ postTags, slug, variant }: FilterListProps) {
+export default function FilterList ({ postTags, slug }: FilterListProps) {
 	const searchParams = useSearchParams()
 	const tags = searchParams.get('tags')
 
