@@ -21,6 +21,10 @@ export async function generateMetadata (
 	}
 }
 
+export async function generateStaticParams () {
+	return Posts.map(post => { return { slug: post.slug } })
+}
+
 export default async function Post ({
 	params,
 }: {

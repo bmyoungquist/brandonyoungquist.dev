@@ -1,4 +1,5 @@
 import PostLayout from '@/layouts/post-layout'
+import { Suspense } from 'react'
 
 export default function PostPageLayout ({
 	children,
@@ -8,7 +9,9 @@ export default function PostPageLayout ({
 	return (
 		<PostLayout>
 			<div className='w-full'>
-				{children}
+				<Suspense>
+					{children}
+				</Suspense>
 			</div>
 		</PostLayout>
 	)
